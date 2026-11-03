@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>2048 — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  #board{--sz:min(92vw,400px);width:var(--sz);height:var(--sz);background:#d9d2c5;border-radius:10px;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:10px;touch-action:none;user-select:none}
+  .t{border-radius:6px;background:#ece6dc;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--sz)/9);color:#5b5248;transition:background .1s}
+  .t.pop{animation:pop .15s ease}
+  @keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+  .t.big{font-size:calc(var(--sz)/12)}.t.huge{font-size:calc(var(--sz)/15)}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>2048</h1>
+  <p class="hint">Arrow keys / WASD, or swipe. Merge tiles to reach 2048.</p>
+  <div class="bar">
+    <div class="stat"><small>Score</small><b id="score">0</b></div>
+    <div class="stat"><small>Best</small><b id="best">0</b></div>
+    <button id="restart">New game</button>
+  </div>
+  <div class="stage">
+    <div id="board"></div>
+    <div class="overlay" id="overlay" hidden><div id="msg"></div><div><button id="again">Play again</button> <button class="ghost" id="keep" hidden>Keep going</button></div></div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

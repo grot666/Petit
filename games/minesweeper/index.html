@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Minesweeper — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  #board{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;width:min(92vw,400px);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+  .c{aspect-ratio:1;border:0;border-radius:4px;background:#d9d2c5;font:700 min(4.6vw,1.15rem)/1 -apple-system,Helvetica,Arial,sans-serif;padding:0;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center}
+  .c:hover{background:#cfc6b6}
+  .c.open{background:#fff;cursor:default}
+  .c.boom{background:#e7a596}
+  .n1{color:#2f5d9b}.n2{color:#3d7a4a}.n3{color:#b4423a}.n4{color:#4b3a8c}.n5{color:#8a3b2a}.n6{color:#2c7a7a}.n7{color:#222}.n8{color:#777}
+  #mode.on{background:var(--accent)}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>Minesweeper</h1>
+  <p class="hint">Click to reveal. Right-click, long-press, or use flag mode to mark a mine.</p>
+  <div class="bar">
+    <div class="stat"><small>Mines left</small><b id="left">10</b></div>
+    <div class="stat"><small>Time</small><b id="time">0</b></div>
+    <div class="stat"><small>Best (s)</small><b id="best">–</b></div>
+    <button id="mode" class="ghost">🚩 Flag mode: off</button>
+    <button id="restart">Restart</button>
+  </div>
+  <div class="stage">
+    <div id="board"></div>
+    <div class="overlay" id="overlay" hidden><div id="msg"></div><button id="again">Play again</button></div>
+  </div>
+</div>
+<script src="mines.js"></script>
+</body>
+</html>

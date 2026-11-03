@@ -1,0 +1,23 @@
+:root{--bg:#f7f5f0;--ink:#2b2824;--muted:#8b847a}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;-webkit-font-smoothing:antialiased}
+a.back{position:fixed;top:1.2rem;left:1.4rem;font-size:.78rem;color:var(--muted);text-decoration:none;letter-spacing:.05em;z-index:2}
+a.back:hover{color:var(--ink)}
+header{text-align:center;padding:22vh 1rem 14vh}
+header h1{font-weight:400;font-style:italic;font-size:1.6rem;margin:0;letter-spacing:.03em}
+header p{margin:.8rem 0 0;font-size:.72rem;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+.work{display:flex;align-items:flex-end;justify-content:center;gap:3.5rem;min-height:100vh;padding:8vh 6vw;box-sizing:border-box}
+.frame{background:#fff;padding:clamp(18px,3.2vw,46px);box-shadow:0 1px 2px rgba(0,0,0,.06),0 12px 40px -18px rgba(0,0,0,.25);border:1px solid #ebe7df;flex:0 1 auto}
+.frame canvas{display:block;width:min(56vw,calc(74vh * var(--r,1)));height:auto;aspect-ratio:var(--ar,1);background:#fff}
+.caption{width:13rem;flex:0 0 13rem;font-size:.8rem;line-height:1.55;padding-bottom:.4rem;opacity:0;transform:translateY(6px);transition:opacity 1.2s ease,transform 1.2s ease}
+.work.seen .caption{opacity:1;transform:none}
+.caption .no{color:var(--muted);font-size:.68rem;letter-spacing:.15em;margin-bottom:.7rem}
+.caption .title{font-style:italic;font-size:1rem;margin:0}
+.caption .meta{color:var(--muted);margin:.15rem 0 .9rem}
+.caption .desc{margin:0}
+footer{text-align:center;font-size:.72rem;color:var(--muted);padding:6vh 1rem 12vh;font-style:italic}
+@media (max-width:760px){
+  .work{flex-direction:column;align-items:center;gap:1.4rem;min-height:auto;padding:7vh 6vw}
+  .frame canvas{width:min(84vw,calc(72vh * var(--r,1)))}
+  .caption{width:auto;flex:none;max-width:min(84vw,26rem);align-self:center}
+  header{padding:16vh 1rem 6vh}
+}

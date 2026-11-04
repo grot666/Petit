@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Dual N-Back — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .wrap{max-width:460px}
+  .nsel{display:flex;align-items:center;gap:.4rem}
+  .nsel button{padding:.35rem .7rem}
+  #grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:min(80vw,300px);margin:0 auto}
+  .sq{aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:8px;transition:background .12s}
+  .sq.on{background:var(--ink)}
+  .sq.mid{background:transparent;border-style:dashed}
+  .controls{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.2rem auto 0;width:min(92vw,360px)}
+  .controls button{padding:1.1rem .5rem;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);touch-action:manipulation;transition:background .15s,color .15s}
+  .controls button small{display:block;color:var(--muted);font-size:.7rem;margin-top:.2rem}
+  .controls button.good{background:#3d7a4a;color:#fff}.controls button.bad{background:#c43c2c;color:#fff}.controls button.miss{background:#e8c46a}
+  .controls button.good small,.controls button.bad small{color:#fff}
+  #start{margin-top:1.2rem;min-width:140px}
+  #progress{color:var(--muted);font-size:.8rem;margin-top:.8rem;min-height:1.2em}
+  #result{margin-top:1rem;font-size:.85rem;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem}
+  #result[hidden]{display:none}
+  #result table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  #result td,#result th{padding:.2rem .3rem;text-align:right}#result th:first-child,#result td:first-child{text-align:left}
+  #result th{font-weight:500;color:var(--muted);font-size:.72rem}
+  .note{color:var(--muted);font-size:.75rem;margin-top:.6rem}
+  details{margin-top:1.4rem;font-size:.78rem;color:var(--muted);text-align:left}
+  details ul{padding-left:1.1rem;margin:.4rem 0}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>Dual N-Back</h1>
+  <p class="hint">Brain training · 健脑训练<br>Match the square and the letter from <b>N</b> steps back.<br>判断方块位置和字母读音是否与 N 步之前相同。</p>
+  <div class="bar">
+    <div class="stat nsel"><button class="ghost" id="nDown" aria-label="Decrease N">−</button><div><small>N</small><b id="n">2</b></div><button class="ghost" id="nUp" aria-label="Increase N">+</button></div>
+    <div class="stat"><small>Best N</small><b id="best">2</b></div>
+    <div class="stat"><small>Sessions</small><b id="sessions">0</b></div>
+  </div>
+  <div id="grid"></div>
+  <div class="controls">
+    <button id="posBtn">Position match<small>位置相同 · A</small></button>
+    <button id="sndBtn">Sound match<small>声音相同 · L</small></button>
+  </div>
+  <button id="start">Start</button>
+  <div id="progress"></div>
+  <div class="note" id="speechNote" hidden>Speech is unavailable in this browser, so the letter is shown in the centre square instead. 本浏览器不支持语音，字母将显示在中间格。</div>
+  <div id="result" hidden></div>
+  <details><summary>History · 记录</summary><ul id="history"></ul></details>
+</div>
+<script src="nback.js"></script>
+</body>
+</html>

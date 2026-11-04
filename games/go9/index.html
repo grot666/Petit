@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>九路围棋 — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .wrap{max-width:600px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;margin:0 auto 1rem;text-align:left}
+  .panel h2{font-size:.95rem;margin:0 0 .7rem;font-weight:600}
+  .row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg label{padding:.45rem .8rem;font-size:.85rem;cursor:pointer}
+  .seg input{display:none}.seg input:checked+span{font-weight:700;color:var(--accent)}
+  input[type=text]{font:inherit;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;padding:.5rem .7rem;border:1px solid var(--line);border-radius:8px;width:9.5em;background:#fff}
+  .small{font-size:.78rem;color:var(--muted);margin:.6rem 0 0;line-height:1.5}
+  #status{font-size:.9rem;margin:.2rem 0 .6rem;min-height:1.3em}
+  #status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.35rem;vertical-align:middle;background:#bbb}
+  #status.on .dot{background:#3d7a4a}#status.wait .dot{background:#e0a53a}#status.off .dot{background:#c43c2c}
+  #roomBar{font-size:.85rem;margin-bottom:.7rem}
+  #roomBar b{letter-spacing:.15em;font-size:1rem}
+  #board{display:block;width:min(94vw,540px);height:auto;aspect-ratio:1;margin:0 auto;touch-action:manipulation;cursor:pointer;border-radius:6px;box-shadow:0 10px 30px -18px rgba(0,0,0,.4)}
+  #turn{font-size:1rem;margin:.8rem 0 .3rem;font-weight:600;min-height:1.3em}
+  #msg{color:#c43c2c;font-size:.85rem;min-height:1.2em}
+  .actions{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.7rem}
+  .actions button[hidden]{display:none}
+  #prompt{background:#fff6e0;border:1px solid #ecd28f;border-radius:10px;padding:.7rem 1rem;margin:.8rem auto 0;font-size:.9rem;display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap}
+  #prompt[hidden]{display:none}
+  #scoreBox{font-size:.88rem;margin-top:.7rem;line-height:1.6}
+  #result{font-size:1.15rem;font-weight:700;margin-top:.7rem;color:var(--accent)}
+  .hidden{display:none!important}
+  .bar .stat{min-width:62px;padding:.35rem .6rem}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>九路围棋</h1>
+  <p class="hint">9×9 · 中国规则数子 · 贴 7 目 · 创建房间和朋友在线对弈</p>
+
+  <section id="lobby">
+    <div class="panel">
+      <h2>创建房间</h2>
+      <div class="row">
+        <span style="font-size:.85rem">我执：</span>
+        <div class="seg">
+          <label><input type="radio" name="color" value="1" checked><span>黑</span></label>
+          <label><input type="radio" name="color" value="2"><span>白</span></label>
+          <label><input type="radio" name="color" value="0"><span>随机</span></label>
+        </div>
+        <button id="createBtn">创建房间</button>
+      </div>
+      <p class="small">创建后会得到一个 6 位房间号和链接，发给朋友即可。</p>
+    </div>
+    <div class="panel">
+      <h2>加入房间</h2>
+      <div class="row"><input type="text" id="codeInput" maxlength="6" placeholder="房间号" autocomplete="off"><button id="joinBtn">加入</button></div>
+    </div>
+    <div class="panel">
+      <h2>本地对战</h2>
+      <div class="row"><button class="ghost" id="localBtn">同一台设备轮流下</button></div>
+    </div>
+    <p class="small" style="text-align:center">在线对战通过浏览器点对点（WebRTC）直连，不经过服务器存棋局。少数网络（公司/校园防火墙）可能连不上。</p>
+  </section>
+
+  <section id="game" class="hidden">
+    <div id="status"><span class="dot"></span><span id="statusText"></span></div>
+    <div id="roomBar" class="hidden">房间号 <b id="roomCode"></b> &nbsp;<button class="ghost" id="copyBtn" style="padding:.3rem .7rem;font-size:.78rem">复制邀请链接</button></div>
+    <div class="bar">
+      <div class="stat"><small>你执</small><b id="youAre">—</b></div>
+      <div class="stat"><small>黑提子</small><b id="capB">0</b></div>
+      <div class="stat"><small>白提子</small><b id="capW">0</b></div>
+      <div class="stat"><small>贴目</small><b id="komi">7</b></div>
+      <div class="stat"><small>手数</small><b id="moveNo">0</b></div>
+    </div>
+    <canvas id="board" width="540" height="540" aria-label="棋盘"></canvas>
+    <div id="turn"></div>
+    <div id="msg" aria-live="polite"></div>
+    <div id="scoreBox" class="hidden"></div>
+    <div id="result"></div>
+    <div id="prompt" hidden><span id="promptText"></span><button id="acceptBtn">同意</button><button class="ghost" id="rejectBtn">拒绝</button></div>
+    <div class="actions">
+      <button class="ghost" id="passBtn">停一手</button>
+      <button class="ghost" id="undoBtn">悔棋</button>
+      <button class="ghost" id="resignBtn">认输</button>
+      <button id="confirmBtn" hidden>确认结果</button>
+      <button class="ghost" id="resumeBtn" hidden>继续对局</button>
+      <button id="rematchBtn" hidden>再来一局</button>
+      <button class="ghost" id="leaveBtn">离开</button>
+    </div>
+    <p class="small" id="tips" style="text-align:center">双方连续停一手后进入数子：点击棋块可标记/取消死子，双方都确认后结算。</p>
+  </section>
+</div>
+<script src="peerjs.min.js"></script>
+<script src="go.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

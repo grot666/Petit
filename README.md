@@ -32,9 +32,16 @@ https://grot666.github.io/Petit/games/
 - [Typing Test](https://grot666.github.io/Petit/games/typing/): 30-second WPM and accuracy
 - [Memory](https://grot666.github.io/Petit/games/memory/): find the eight pairs
 - [Dual N-Back](https://grot666.github.io/Petit/games/dual-n-back/): brain training with position and spoken-letter matching, adaptive N
+- [九路围棋 9×9 Go](https://grot666.github.io/Petit/games/go9/): online rooms (peer-to-peer WebRTC via PeerJS) or local two-player; Chinese area scoring, komi 7
 - [Minesweeper](https://grot666.github.io/Petit/games/minesweeper/): 9×9, right-click or long-press to flag
 
 Best scores are kept in your browser's `localStorage`.
+
+## Tests
+
+```sh
+node tests/go9.test.js   # Go rules: capture, ko, suicide, scoring, undo
+```
 
 ## Run locally
 

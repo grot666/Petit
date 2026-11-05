@@ -4,6 +4,12 @@ A small home for small things: generative art and little browser games. Everythi
 
 **Live site:** https://grot666.github.io/Petit/
 
+## 今日 Petit · Today
+
+https://grot666.github.io/Petit/today/
+
+Each day a new generative artwork (seeded from the local date) and a small challenge linked to one of the games. Download the PNG, browse previous days with `?date=YYYY-MM-DD`, and keep a streak in your browser's `localStorage`. Same day, same piece — for everyone.
+
 ## Gallery
 
 https://grot666.github.io/Petit/gallery/

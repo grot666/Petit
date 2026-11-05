@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Petit — Sound Visualizer · 声音可视化</title>
+<link rel="stylesheet" href="../lab.css">
+</head>
+<body>
+<a class="back" href="../">&larr; Experiments</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Experiment III</p>
+    <h1>Sound Visualizer</h1>
+    <p class="sub">Watch sound become colour and shape.
+      <span class="zh">让声音变成颜色与形状。</span>
+    </p>
+  </header>
+  <div class="stage-wrap"><canvas id="c" width="900" height="900" aria-label="Sound visualizer canvas"></canvas></div>
+  <div class="toolbar">
+    <button type="button" class="accent" id="mic">Use microphone</button>
+    <button type="button" id="melody">Play a little melody</button>
+    <button type="button" class="ghost" id="stop">Stop</button>
+  </div>
+  <p class="note" id="note">Microphone access is optional and only starts after you press the button. Audio stays in your browser — nothing is recorded or sent.</p>
+  <p class="hint" id="status">Idle. Choose mic or melody.</p>
+</div>
+<script src="sound.js"></script>
+</body>
+</html>

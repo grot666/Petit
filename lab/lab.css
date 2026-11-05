@@ -1,0 +1,77 @@
+:root{
+  --bg:#f7f5f0;--ink:#2b2824;--muted:#8b847a;--line:#ebe7df;
+  --accent:#b4553c;--card:#fff;--soft:#f0ebe3
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit}
+a.back{position:fixed;top:1.2rem;left:1.4rem;font-size:.78rem;color:var(--muted);
+  text-decoration:none;letter-spacing:.05em;z-index:2}
+a.back:hover{color:var(--ink)}
+
+.page{max-width:760px;margin:0 auto;padding:5.5rem 1.25rem 4rem}
+.hero{text-align:center;margin-bottom:2rem}
+.hero .eyebrow{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 .7rem}
+.hero h1{font-weight:400;font-style:italic;font-size:clamp(1.55rem,4vw,2.05rem);margin:0;letter-spacing:.02em}
+.hero .sub{margin:.55rem 0 0;font-size:.9rem;color:var(--muted);line-height:1.5}
+.hero .sub .zh{display:block;margin-top:.2rem;color:var(--ink);font-size:.92rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin:0 auto}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:1.3rem 1.25rem 1.4rem;text-decoration:none;color:var(--ink);
+  box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .22s,box-shadow .22s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 32px -18px rgba(0,0,0,.3)}
+.card .no{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;margin:0 0 .55rem}
+.card h2{font-weight:400;font-style:italic;font-size:1.15rem;margin:0}
+.card .zh{margin:.25rem 0 0;font-size:.9rem}
+.card p{margin:.55rem 0 0;font-size:.8rem;color:var(--muted);line-height:1.45;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+
+/* experiment shell */
+.stage-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(0,0,0,.06),0 12px 40px -18px rgba(0,0,0,.25);position:relative}
+.stage-wrap canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair;background:#0e0e12}
+.toolbar{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;align-items:center;margin:1rem 0 0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+button,a.btn{font:inherit;font-size:.82rem;background:var(--ink);color:#fff;border:0;border-radius:8px;
+  padding:.55rem 1rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+button:hover,a.btn:hover{opacity:.88}
+button.ghost,a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button.accent{background:var(--accent)}
+button:disabled{opacity:.35;cursor:not-allowed}
+.hint{text-align:center;margin:.85rem 0 0;font-size:.78rem;color:var(--muted);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.45}
+.foot{text-align:center;margin-top:2.4rem;font-size:.72rem;color:var(--muted);font-style:italic}
+.note{max-width:34rem;margin:1rem auto 0;padding:0.9rem 1rem;background:var(--soft);border-radius:10px;
+  font-size:.78rem;color:var(--muted);line-height:1.5;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;text-align:center}
+
+/* creatures */
+.critters{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.75rem;margin-top:.5rem}
+.critter{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.7rem .5rem .8rem;
+  cursor:pointer;text-align:center;transition:transform .2s,box-shadow .2s}
+.critter:hover,.critter:focus{transform:translateY(-2px);box-shadow:0 10px 28px -16px rgba(0,0,0,.28);outline:none}
+.critter.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(180,85,60,.25)}
+.critter canvas{display:block;width:96px;height:96px;margin:0 auto;image-rendering:pixelated;image-rendering:crisp-edges;background:transparent}
+.critter .name{margin:.45rem 0 0;font-size:.72rem;color:var(--muted);letter-spacing:.02em;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.enlarge{margin-top:1.4rem;text-align:center}
+.enlarge canvas{display:block;width:min(280px,70vw);height:auto;margin:0 auto;
+  image-rendering:pixelated;image-rendering:crisp-edges;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:1rem;box-sizing:content-box}
+.enlarge .big-name{font-style:italic;font-size:1.15rem;margin:.8rem 0 .2rem}
+.enlarge .seed{font-size:.72rem;color:var(--muted);letter-spacing:.06em;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+
+@media (max-width:560px){
+  a.back{position:static;display:inline-block;margin:1rem 1.1rem .2rem}
+  .page{padding:1rem 1rem 3.5rem}
+  .hero{margin-bottom:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .card,.critter{transition:none}
+}

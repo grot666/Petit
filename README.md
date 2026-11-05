@@ -10,6 +10,17 @@ https://grot666.github.io/Petit/today/
 
 Each day a new generative artwork (seeded from the local date) and a small challenge linked to one of the games. Download the PNG, browse previous days with `?date=YYYY-MM-DD`, and keep a streak in your browser's `localStorage`. Same day, same piece — for everyone.
 
+## Experiments · 小实验
+
+https://grot666.github.io/Petit/lab/
+
+Four short interactive toys:
+
+- [Fireworks](https://grot666.github.io/Petit/lab/fireworks/) — tap to launch particle fireworks
+- [Fluid Doodle](https://grot666.github.io/Petit/lab/fluid/) — drag smoky ink across the page
+- [Sound Visualizer](https://grot666.github.io/Petit/lab/sound/) — microphone (after you allow) or a tiny generative melody; nothing recorded
+- [Pixel Creatures](https://grot666.github.io/Petit/lab/creatures/) — symmetric critters with names, PNG download, and `?seed=` share links
+
 ## Gallery
 
 https://grot666.github.io/Petit/gallery/

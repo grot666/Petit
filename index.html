@@ -7,33 +7,43 @@
 <title>Petit</title>
 <style>
   html,body{margin:0;background:#faf8f4;color:#2a2723;font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
-  main{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3rem;padding:2rem;box-sizing:border-box}
+  main{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.4rem;padding:2rem;box-sizing:border-box}
   h1{font-weight:400;font-style:italic;font-size:2.4rem;letter-spacing:.04em;margin:0}
-  p.sub{margin:-2rem 0 0;font-size:.85rem;color:#8a837a;letter-spacing:.12em;text-transform:uppercase}
+  p.sub{margin:-1.4rem 0 0;font-size:.85rem;color:#8a837a;letter-spacing:.12em;text-transform:uppercase}
   nav{display:flex;gap:3.5rem;flex-wrap:wrap;justify-content:center}
   nav a{color:#2a2723;text-decoration:none;font-size:1.05rem;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .3s}
   nav a:hover{border-color:#2a2723}
   nav a span{display:block;font-size:.75rem;color:#8a837a;margin-top:.3rem;font-style:italic}
-  .today-card{display:block;max-width:22rem;width:100%;text-align:center;text-decoration:none;color:#2a2723;
+  .cards{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;width:100%;max-width:48rem}
+  .feat{display:block;flex:1 1 16rem;max-width:22rem;text-align:center;text-decoration:none;color:#2a2723;
     background:#fff;border:1px solid #ebe7df;border-radius:14px;padding:1.35rem 1.5rem 1.45rem;
     box-shadow:0 1px 2px rgba(0,0,0,.04),0 14px 36px -20px rgba(0,0,0,.28);
     transition:transform .25s,box-shadow .25s}
-  .today-card:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(0,0,0,.05),0 18px 40px -18px rgba(0,0,0,.32)}
-  .today-card .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#b4553c;margin:0 0 .55rem;
+  .feat:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(0,0,0,.05),0 18px 40px -18px rgba(0,0,0,.32)}
+  .feat .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#b4553c;margin:0 0 .55rem;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-  .today-card .t{font-style:italic;font-size:1.25rem;margin:0}
-  .today-card .d{margin:.45rem 0 0;font-size:.8rem;color:#8a837a;line-height:1.45}
+  .feat.lab .eyebrow{color:#5e7868}
+  .feat .t{font-style:italic;font-size:1.25rem;margin:0}
+  .feat .d{margin:.45rem 0 0;font-size:.8rem;color:#8a837a;line-height:1.45}
+  @media (prefers-reduced-motion:reduce){.feat{transition:none}}
 </style>
 </head>
 <body>
 <main>
   <h1>Petit</h1>
   <p class="sub">small things</p>
-  <a class="today-card" href="today/">
-    <p class="eyebrow">今日 Petit · Today</p>
-    <p class="t">A piece &amp; a challenge</p>
-    <p class="d">One generative artwork and one small game goal, fresh each day.</p>
-  </a>
+  <div class="cards">
+    <a class="feat" href="today/">
+      <p class="eyebrow">今日 Petit · Today</p>
+      <p class="t">A piece &amp; a challenge</p>
+      <p class="d">One generative artwork and one small game goal, fresh each day.</p>
+    </a>
+    <a class="feat lab" href="lab/">
+      <p class="eyebrow">Experiments · 小实验</p>
+      <p class="t">Four things to poke</p>
+      <p class="d">Fireworks, fluid ink, sound shapes, and pixel creatures.</p>
+    </a>
+  </div>
   <nav>
     <a href="gallery/">Gallery<span>generative works on canvas</span></a>
     <a href="games/">Games<span>a few small diversions</span></a>

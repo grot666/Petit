@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Pixel Creatures · 像素生物</title>
+<link rel="stylesheet" href="../lab.css">
+</head>
+<body>
+<a class="back" href="../">&larr; Experiments</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Experiment IV</p>
+    <h1>Pixel Creatures</h1>
+    <p class="sub">Little symmetric critters, named and shareable.
+      <span class="zh">对称的小像素生物，可命名、可分享。</span>
+    </p>
+  </header>
+  <div class="toolbar" style="margin-top:0;margin-bottom:1rem">
+    <button type="button" id="regen">New creatures</button>
+    <button type="button" class="ghost" id="download">Download PNG</button>
+    <button type="button" class="ghost" id="copy">Copy link</button>
+  </div>
+  <div class="critters" id="grid" role="list"></div>
+  <div class="enlarge">
+    <canvas id="big" width="128" height="128" aria-label="Selected creature"></canvas>
+    <p class="big-name" id="big-name">—</p>
+    <p class="seed" id="big-seed"></p>
+  </div>
+  <p class="hint">Click a creature to enlarge. Share with <code>?seed=</code> in the URL.</p>
+</div>
+<script src="creatures.js"></script>
+</body>
+</html>

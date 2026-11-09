@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Sokoban · 推箱子 — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  #board{display:block;width:min(92vw,420px);height:auto;touch-action:none;background:#efe9df;border-radius:10px}
+  .pad{display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(2,48px);gap:6px;justify-content:center;margin:1rem auto 0}
+  .pad button{padding:0;font-size:1.2rem;touch-action:manipulation}
+  .pad .u{grid-column:2}.pad .l{grid-column:1;grid-row:2}.pad .d{grid-column:2;grid-row:2}.pad .r{grid-column:3;grid-row:2}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>Sokoban · 推箱子</h1>
+  <p class="hint">Push every crate onto a dot. Arrow keys / WASD, swipe, or the pad. U = undo, R = restart.<br>把所有箱子推到圆点上。方向键、滑动或下方按钮；U 撤销，R 重来。</p>
+  <div class="bar">
+    <div class="stat"><small>Level 关卡</small><b id="lv">1</b></div>
+    <div class="stat"><small>Moves 步数</small><b id="mv">0</b></div>
+    <button id="prev" class="ghost">‹</button>
+    <button id="next" class="ghost">›</button>
+    <button id="undo" class="ghost">Undo 撤销</button>
+    <button id="restart">Restart 重来</button>
+  </div>
+  <div class="stage">
+    <canvas id="board" width="420" height="420"></canvas>
+    <div class="overlay" id="overlay" hidden><div id="msg"></div><button id="go">Next level 下一关</button></div>
+  </div>
+  <div class="pad">
+    <button class="ghost u" data-d="0,-1" aria-label="Up">▲</button>
+    <button class="ghost l" data-d="-1,0" aria-label="Left">◀</button>
+    <button class="ghost d" data-d="0,1" aria-label="Down">▼</button>
+    <button class="ghost r" data-d="1,0" aria-label="Right">▶</button>
+  </div>
+</div>
+<script src="sokoban.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Five Letters · 猜词 — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  #grid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;width:min(86vw,320px);margin:0 auto 1.1rem}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .row.shake{animation:shake .35s}
+  @keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+  .t{aspect-ratio:1;border:2px solid var(--line);border-radius:6px;background:var(--card);display:flex;align-items:center;justify-content:center;font:700 min(7vw,1.7rem)/1 -apple-system,Helvetica,Arial,sans-serif;text-transform:uppercase;transition:background .25s,border-color .25s}
+  .t.filled{border-color:#bdb5a8}
+  .g{background:#5e8c61;border-color:#5e8c61;color:#fff}
+  .y{background:#d2a645;border-color:#d2a645;color:#fff}
+  .x{background:#9b948a;border-color:#9b948a;color:#fff}
+  #kb{display:flex;flex-direction:column;gap:6px;width:min(96vw,500px);margin:0 auto;user-select:none;-webkit-user-select:none}
+  .kr{display:flex;gap:5px;justify-content:center}
+  .k{flex:1;min-width:0;height:52px;border:0;border-radius:6px;background:#ddd6ca;color:var(--ink);font:600 .95rem -apple-system,Helvetica,Arial,sans-serif;padding:0;text-transform:uppercase;cursor:pointer;touch-action:manipulation}
+  .k.wide{flex:1.6;font-size:.72rem}
+  .k.g,.k.y,.k.x{color:#fff}
+  #toast{min-height:1.4rem;font-size:.85rem;color:var(--accent);margin:-.4rem 0 .6rem}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>Five Letters · 猜词</h1>
+  <p class="hint">Guess the 5-letter English word in six tries. 六次机会猜出一个五字母英文单词。<br>🟩 right spot 位置对 · 🟨 in the word 有这个字母 · ⬜ not in it 没有</p>
+  <div class="bar">
+    <div class="stat"><small>Mode 模式</small><b id="mode">Daily</b></div>
+    <div class="stat"><small>Streak 连胜</small><b id="streak">0</b></div>
+    <button id="daily" class="ghost">Daily 每日</button>
+    <button id="random">New word 换一个</button>
+  </div>
+  <div id="toast"></div>
+  <div id="grid"></div>
+  <div id="kb"></div>
+</div>
+<script src="wordle.js"></script>
+</body>
+</html>

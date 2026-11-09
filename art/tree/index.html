@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Wind Trees · 风中的树</title>
+<link rel="stylesheet" href="../art.css">
+</head>
+<body>
+<a class="back" href="../">&larr; Artworks</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Artwork I</p>
+    <h1>Wind Trees · 风中的树</h1>
+    <p class="sub">L-system trees grow branch by branch, then sway in a gentle wind.
+      <span class="zh">L 系统生成的树一枝一枝长出来，然后在微风里摇。</span>
+    </p>
+  </header>
+  <div class="stage-wrap"><canvas id="c" width="900" height="900" aria-label="Wind Trees"></canvas></div>
+  <div class="toolbar">
+    <button type="button" id="regen">New trees 换一片</button>
+    <label class="ctl">Wind 风 <input type="range" id="wind" min="0" max="100" value="35"></label>
+    <button type="button" class="ghost" id="dl">Download PNG 下载</button>
+  </div>
+  <p class="hint">Tap the picture to plant another tree. 点画面再种一棵。</p>
+</div>
+<script src="tree.js"></script>
+</body>
+</html>

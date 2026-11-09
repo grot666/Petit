@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Word Counter · 字数统计</title>
+<link rel="stylesheet" href="../tools.css">
+<style>
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Tools</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Tool IV</p>
+    <h1>Word Counter · 字数统计</h1>
+    <p class="sub">Counts Chinese characters and English words separately, plus reading time.
+      <span class="zh">中文字数和英文单词分开统计，还会估算阅读时间。</span>
+    </p>
+  </header>
+  <div class="panel">
+    <textarea id="txt" placeholder="Paste or type here… 在这里粘贴或输入文字…" aria-label="Text"></textarea>
+    <div class="stats" id="stats"></div>
+    <div class="toolbar" style="justify-content:flex-start">
+      <button type="button" class="ghost" id="clear">Clear 清空</button>
+      <button type="button" class="ghost" id="copy">Copy stats 复制统计</button>
+    </div>
+  </div>
+  <p class="hint">Everything stays on this page; nothing is uploaded. Reading time assumes 300 汉字/min and 230 English words/min. 文字只在本页面处理，不会上传。</p>
+</div>
+<script src="wordcount.js"></script>
+</body>
+</html>

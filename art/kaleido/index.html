@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Kaleidoscope · 万花筒</title>
+<link rel="stylesheet" href="../art.css">
+</head>
+<body>
+<a class="back" href="../">&larr; Artworks</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Artwork V</p>
+    <h1>Kaleidoscope · 万花筒</h1>
+    <p class="sub">Draw one line and it is mirrored around the centre in shifting colour.
+      <span class="zh">画一笔，就会绕着中心镜像成一朵变色的花。</span>
+    </p>
+  </header>
+  <div class="stage-wrap"><canvas id="c" width="900" height="900" aria-label="Kaleidoscope"></canvas></div>
+  <div class="toolbar">
+    <select id="sym" aria-label="Symmetry"><option value="6">6 ×</option><option value="8" selected>8 ×</option><option value="12">12 ×</option><option value="16">16 ×</option></select>
+    <button type="button" class="ghost" id="auto">Auto draw 自动画</button>
+    <button type="button" id="clear">Clear 清空</button>
+    <button type="button" class="ghost" id="dl">Download PNG 下载</button>
+  </div>
+  <p class="hint">Draw with a finger or the mouse. 用手指或鼠标画。</p>
+</div>
+<script src="kaleido.js"></script>
+</body>
+</html>

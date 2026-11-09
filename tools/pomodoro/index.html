@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Pomodoro · 番茄钟</title>
+<link rel="stylesheet" href="../tools.css">
+<style>
+.timer{text-align:center}
+.ring{position:relative;width:min(72vw,260px);aspect-ratio:1;margin:.4rem auto 1rem}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}
+.ring .bg{stroke:var(--soft)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset .4s linear}
+.ring.brk .fg{stroke:#5e7868}
+.ring .time{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .time b{font:400 clamp(2.4rem,11vw,3.4rem)/1 "Iowan Old Style",Palatino,Georgia,serif;font-variant-numeric:tabular-nums}
+.ring .time small{margin-top:.4rem;font-size:.78rem;color:var(--muted)}
+.dots{margin-top:.9rem;font-size:1.1rem;letter-spacing:.3rem;min-height:1.4rem}
+.set{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;font-size:.78rem;color:var(--muted)}
+.set input{width:4.2rem}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Tools</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Tool I</p>
+    <h1>Pomodoro · 番茄钟</h1>
+    <p class="sub">Focus for 25 minutes, rest for 5. Every fourth break is a long one.
+      <span class="zh">专注 25 分钟，休息 5 分钟；每四个番茄来一次长休息。</span>
+    </p>
+  </header>
+  <div class="panel timer">
+    <div class="seg" id="modes"><button type="button" data-m="focus" class="on">Focus 专注</button><button type="button" data-m="short">Short break 短休</button><button type="button" data-m="long">Long break 长休</button></div>
+    <div class="ring" id="ring">
+      <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="arc" cx="60" cy="60" r="52"/></svg>
+      <div class="time"><b id="clock">25:00</b><small id="label">Focus · 专注</small></div>
+    </div>
+    <div class="toolbar" style="margin-top:0"><button type="button" class="accent" id="start">Start 开始</button><button type="button" class="ghost" id="reset">Reset 重置</button><button type="button" class="ghost" id="skip">Skip 跳过</button></div>
+    <div class="dots" id="dots" aria-label="Completed today"></div>
+    <div class="set">
+      <label>Focus 专注 <input type="number" id="fMin" min="1" max="120" value="25"> min</label>
+      <label>Short 短休 <input type="number" id="sMin" min="1" max="60" value="5"> min</label>
+      <label>Long 长休 <input type="number" id="lMin" min="1" max="60" value="15"> min</label>
+    </div>
+  </div>
+  <p class="hint">A soft chime plays when a session ends; the tab title shows the countdown. 结束时会有提示音，标签页标题也会显示倒计时。</p>
+</div>
+<script src="pomodoro.js"></script>
+</body>
+</html>

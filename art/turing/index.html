@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Turing Patterns · 图灵斑纹</title>
+<link rel="stylesheet" href="../art.css">
+</head>
+<body>
+<a class="back" href="../">&larr; Artworks</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Artwork II</p>
+    <h1>Turing Patterns · 图灵斑纹</h1>
+    <p class="sub">Two virtual chemicals react and diffuse until patterns appear, like on a leopard or a coral.
+      <span class="zh">两种虚拟化学物质相互反应、扩散，长出豹纹或珊瑚一样的图案。</span>
+    </p>
+  </header>
+  <div class="stage-wrap"><canvas id="c" width="900" height="900" aria-label="Turing Patterns"></canvas></div>
+  <div class="toolbar">
+    <select id="preset" aria-label="Pattern">
+      <option value="coral">Coral 珊瑚</option><option value="spots">Spots 斑点</option><option value="maze">Maze 迷宫</option><option value="mitosis">Mitosis 分裂</option>
+    </select>
+    <select id="pal" aria-label="Colours">
+      <option value="ink">Ink 墨</option><option value="ember">Ember 余烬</option><option value="sea">Sea 海</option>
+    </select>
+    <button type="button" id="reset">Reseed 重新播种</button>
+    <button type="button" class="ghost" id="dl">Download PNG 下载</button>
+  </div>
+  <p class="hint">Drag on the picture to stir in more chemical. 在画面上拖动可以加入新的化学物质。</p>
+</div>
+<script src="turing.js"></script>
+</body>
+</html>

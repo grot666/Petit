@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Breakout · 打砖块 — Petit</title>
+<link rel="stylesheet" href="../style.css">
+<style>#board{display:block;width:min(92vw,420px);height:auto;touch-action:none;background:#1d1b19;border-radius:10px;cursor:none}</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Games</a>
+<div class="wrap">
+  <h1>Breakout · 打砖块</h1>
+  <p class="hint">Move the paddle with mouse, finger, or ← →. Clear every brick.<br>用鼠标、手指或方向键移动挡板，打掉所有砖块。</p>
+  <div class="bar">
+    <div class="stat"><small>Score 得分</small><b id="score">0</b></div>
+    <div class="stat"><small>Lives 生命</small><b id="lives">3</b></div>
+    <div class="stat"><small>Best 最高</small><b id="best">0</b></div>
+  </div>
+  <div class="stage">
+    <canvas id="board" width="420" height="560"></canvas>
+    <div class="overlay" id="overlay"><div id="msg">Tap or press Space to start<br>点击或按空格开始</div><button id="go">Start 开始</button></div>
+  </div>
+</div>
+<script src="breakout.js"></script>
+</body>
+</html>

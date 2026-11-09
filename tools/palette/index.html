@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Palette · 配色生成</title>
+<link rel="stylesheet" href="../tools.css">
+<style>
+.sw{display:flex;height:min(52vh,360px);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px -22px rgba(0,0,0,.35)}
+.sw .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.35rem;padding:.8rem .2rem;min-width:0;transition:background .3s;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.sw .c button{background:rgba(255,255,255,.22);color:inherit;padding:.4rem .5rem;font-size:.72rem;border-radius:7px;max-width:100%}
+.sw .c .hex{font-size:.82rem;font-weight:600;letter-spacing:.04em;cursor:pointer;background:transparent;padding:.2rem}
+@media (max-width:560px){.sw{flex-direction:column;height:auto}.sw .c{flex-direction:row;justify-content:space-between;padding:1.1rem 1rem}}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Tools</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Tool II</p>
+    <h1>Palette · 配色生成</h1>
+    <p class="sub">Five colours that get along. Lock the ones you like, shuffle the rest.
+      <span class="zh">生成五个和谐的颜色，锁住喜欢的，其他再换。</span>
+    </p>
+  </header>
+  <div class="toolbar" style="margin:0 0 1rem">
+    <select id="rule" aria-label="Harmony"><option value="analog">Analogous 邻近色</option><option value="comp">Complementary 互补色</option><option value="triad">Triadic 三角色</option><option value="mono">Monochrome 单色</option><option value="random">Surprise 随机</option></select>
+    <button type="button" id="gen">Generate 生成 (Space)</button>
+    <button type="button" class="ghost" id="copyall">Copy all 复制全部</button>
+  </div>
+  <div class="sw" id="sw"></div>
+  <p class="hint" id="msg">Tap a hex code to copy it. Press Space to generate. 点击色值即可复制，按空格换一组。</p>
+</div>
+<script src="palette.js"></script>
+</body>
+</html>

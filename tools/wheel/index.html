@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit — Decision Wheel · 决定转盘</title>
+<link rel="stylesheet" href="../tools.css">
+<style>
+.wheelbox{position:relative;width:min(84vw,380px);aspect-ratio:1;margin:0 auto}
+.wheelbox canvas{width:100%;height:100%;display:block;cursor:pointer;touch-action:manipulation}
+.wheelbox .ptr{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-top:24px solid var(--ink);filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
+#result{text-align:center;font:400 1.5rem "Iowan Old Style",Palatino,Georgia,serif;font-style:italic;min-height:2.2rem;margin:1rem 0 .4rem}
+.lay{display:grid;grid-template-columns:1fr 15rem;gap:1.2rem;align-items:start}
+@media (max-width:640px){.lay{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="back" href="../">&larr; Tools</a>
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">Tool III</p>
+    <h1>Decision Wheel · 决定转盘</h1>
+    <p class="sub">Can’t decide? Write the options, spin, and let the wheel choose.
+      <span class="zh">选择困难？写下选项，转一下，让转盘替你决定。</span>
+    </p>
+  </header>
+  <div class="lay">
+    <div>
+      <div class="wheelbox"><canvas id="w" width="760" height="760" aria-label="Wheel"></canvas><div class="ptr"></div></div>
+      <div id="result" aria-live="polite"></div>
+      <div class="toolbar" style="margin-top:0"><button type="button" class="accent" id="spin">Spin 转！</button></div>
+    </div>
+    <div class="panel">
+      <label for="opts" style="font-size:.78rem;color:var(--muted)">Options, one per line 选项（每行一个）</label>
+      <textarea id="opts" spellcheck="false"></textarea>
+      <div class="toolbar" style="justify-content:flex-start">
+        <select id="preset" aria-label="Presets"><option value="">Presets 预设…</option><option value="food">Lunch 午饭吃什么</option><option value="yn">Yes / No 是否</option><option value="dice">1–6 骰子</option><option value="who">Who pays 谁请客</option></select>
+      </div>
+    </div>
+  </div>
+  <p class="hint">Tap the wheel or press Space to spin. Your list is saved in this browser. 点击转盘或按空格旋转；选项保存在本浏览器。</p>
+</div>
+<script src="wheel.js"></script>
+</body>
+</html>

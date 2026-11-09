@@ -20,17 +20,22 @@
 <body>
 <a class="back" href="../">&larr; Petit</a>
 <header>
-  <h1>Games</h1>
-  <p class="hint">A few small diversions. Best scores stay in your browser.</p>
+  <h1>Games · 小游戏</h1>
+  <p class="hint">A few small diversions. Best scores stay in your browser. 最好成绩只保存在你的浏览器里。</p>
 </header>
 <main class="grid">
   <a class="card" href="snake/"><div class="ico">🐍</div><h2>Snake</h2><p>Eat, grow, don't bite yourself. Arrow keys, WASD or swipe.</p><div class="best" data-key="petit.snake.best" data-label="Best"></div></a>
-  <a class="card" href="2048/"><div class="ico">🔢</div><h2>2048</h2><p>Slide tiles, merge equals, reach 2048.</p><div class="best" data-key="petit.2048.best" data-label="Best"></div></a>
+  <a class="card" href="2048/"><div class="ico">🟧</div><h2>2048</h2><p>Slide tiles, merge equals, reach 2048.</p><div class="best" data-key="petit.2048.best" data-label="Best"></div></a>
   <a class="card" href="typing/"><div class="ico">⌨️</div><h2>Typing Test</h2><p>Thirty seconds. How many words per minute?</p><div class="best" data-key="petit.typing.best" data-label="Best WPM"></div></a>
   <a class="card" href="memory/"><div class="ico">🃏</div><h2>Memory</h2><p>Flip cards two at a time and find every pair.</p><div class="best" data-key="petit.memory.best" data-label="Fewest moves"></div></a>
   <a class="card" href="minesweeper/"><div class="ico">💣</div><h2>Minesweeper</h2><p>Clear the field without touching a mine. Long-press to flag.</p><div class="best" data-key="petit.mines.best" data-label="Best time (s)"></div></a>
   <a class="card" href="dual-n-back/"><div class="ico">🧠</div><h2>Dual N-Back</h2><p>Brain training · 健脑. Remember positions and letters from N steps back.</p><div class="best" data-key="petit.nback.best" data-label="Best N"></div></a>
   <a class="card" href="go9/"><div class="ico">⚫</div><h2>九路围棋 · 9×9 Go</h2><p>创建房间和朋友在线对弈，或同一设备本地对战。中国规则，贴 7 目。</p></a>
+  <a class="card" href="wordle/"><div class="ico">🔤</div><h2>Five Letters · 猜词</h2><p>Guess the 5-letter word in six tries. Daily word or endless. 六次机会猜单词。</p><div class="best" data-key="petit.wordle.streak" data-label="Streak 连胜"></div></a>
+  <a class="card" href="sokoban/"><div class="ico">📦</div><h2>Sokoban · 推箱子</h2><p>Push every crate onto a dot. Five levels, undo allowed. 五关，可撤销。</p></a>
+  <a class="card" href="breakout/"><div class="ico">🧱</div><h2>Breakout · 打砖块</h2><p>Bounce the ball, smash the bricks. Mouse, finger or arrows. 鼠标、手指或方向键。</p><div class="best" data-key="petit.breakout.best" data-label="Best 最高"></div></a>
+  <a class="card" href="fifteen/"><div class="ico">🔢</div><h2>15 Puzzle · 数字华容道</h2><p>Slide the tiles back into order. 3×3 to 5×5. 把数字滑回顺序。</p><div class="best" data-key="petit.fifteen.best4" data-label="Best 4×4 (s)"></div></a>
+  <a class="card" href="reaction/"><div class="ico">⚡</div><h2>Reaction Time · 反应测试</h2><p>Wait for green, then tap. Average of five tries. 变绿就点，测五次。</p><div class="best" data-key="petit.reaction.best" data-label="Best avg (ms)"></div></a>
 </main>
 <script>
 document.querySelectorAll('.best').forEach(function (el) {

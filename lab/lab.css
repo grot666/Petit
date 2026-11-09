@@ -52,12 +52,13 @@ button:disabled{opacity:.35;cursor:not-allowed}
 
 /* creatures */
 .critters{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.75rem;margin-top:.5rem}
-.critter{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.7rem .5rem .8rem;
-  cursor:pointer;text-align:center;transition:transform .2s,box-shadow .2s}
+.critter{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.7rem .5rem .8rem;
+  cursor:pointer;text-align:center;transition:transform .2s,box-shadow .2s;min-width:0;overflow:hidden}
 .critter:hover,.critter:focus{transform:translateY(-2px);box-shadow:0 10px 28px -16px rgba(0,0,0,.28);outline:none}
 .critter.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(180,85,60,.25)}
-.critter canvas{display:block;width:96px;height:96px;margin:0 auto;image-rendering:pixelated;image-rendering:crisp-edges;background:transparent}
-.critter .name{margin:.45rem 0 0;font-size:.72rem;color:var(--muted);letter-spacing:.02em;
+.critter canvas{display:block;width:96px;max-width:100%;height:auto;aspect-ratio:1;margin:0 auto;image-rendering:pixelated;image-rendering:crisp-edges;background:transparent}
+.critter .name{width:100%;margin:.45rem 0 0;font-size:.72rem;color:var(--muted);letter-spacing:.02em;line-height:1.3;
+  overflow-wrap:anywhere;word-break:break-word;hyphens:auto;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
 .enlarge{margin-top:1.4rem;text-align:center}
 .enlarge canvas{display:block;width:min(280px,70vw);height:auto;margin:0 auto;
